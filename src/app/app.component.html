@@ -1,0 +1,47 @@
+<div class="container-fluid">
+  <div class="row g-2">
+    <div class="col-12">
+      <h1>Todo List</h1>
+    </div>
+  </div>
+  <div class="row g-2">
+    <div class="col-12">
+      <div class="p-3 border bg-light">
+        <div class="input-group mb-3">
+          <input
+            [(ngModel)]="newTask"
+            type="text"
+            class="form-control"
+            placeholder="Tasks"
+            aria-label="Tasks"
+            aria-describedby="button-addon2"
+          />
+          <button
+            (click)="addToList()"
+            class="btn btn-dark"
+            type="button"
+            id="button-addon2"
+          >
+            Button
+          </button>
+        </div>
+        <ul
+          class="list-group p-1 text-wrap"
+          *ngFor="let x of items; let index = index;"
+        >
+          <li
+            class="list-group-item d-flex justify-content-between align-items-center "
+          >
+            {{x}}
+            <span
+              (click)="deleteTask(index)"
+              type="button"
+              value="Delete"
+              class="bi-trash btn btn-danger"
+            ></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
